@@ -22,7 +22,7 @@ disk_management_menu() {
 user_management_menu() {
   while true;
   do
-    echo "----- User Management -----"
+    echo "---------- User Management ---------------"
     echo "1. Add User"
     echo "2. Delete User"
     echo "3. Check User"
@@ -77,7 +77,7 @@ user_management_menu() {
 file_management_menu() {
   while true
   do
-    echo "----- File Management -----"
+    echo "--------------- File Management ----------------"
     echo "1. Create File"
     echo "2. Create Directory"
     echo "3. Backup Directory"
@@ -135,7 +135,7 @@ file_management_menu() {
 while true
 do
  #Giving the option
- echo "----------Menu-------------"
+ echo "--------------------Menu-----------------------"
  echo "1.Basic system information"
  echo "2.Disk Management"
  echo "3.File Management"
