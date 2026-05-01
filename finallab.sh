@@ -33,7 +33,7 @@ do
  
 
 
-   echo "----- File Management -----"
+  3)echo "----- File Management -----"
    echo "1. Create File"
    echo "2. Create Directory"
    echo "3. Backup Directory"
@@ -80,8 +80,43 @@ do
 
         echo
    
- 3)echo "";;
- 4)echo "";;
+
+ 4)
+ #!/bin/bash
+
+while true; do
+    echo "1. Add User"
+    echo "2. Delete User"
+    echo "3. Check User"
+    echo "4. List Users"
+    echo "5. Exit"
+    read -p "Choice: " ch
+
+    case $ch in
+        1)
+            read -p "Username: " u
+            grep -q "^$u:" /etc/passwd && echo "Exists!" || sudo useradd "$u"
+            ;;
+
+        2)
+            read -p "Username: " u
+            grep -q "^$u:" /etc/passwd && sudo userdel "$u" || echo "Not found!"
+            ;;
+
+        3)
+            read -p "Username: " u
+            grep "^$u:" /etc/passwd | awk -F: '{print $1, $3, $6}' | sed 's/^/User: /' || echo "Not found!"
+            ;;
+
+        4)
+            awk -F: '{print $1}' /etc/passwd | sed 's/^/- /'
+            ;;
+
+        5)
+            break
+            ;;
+    esac
+done
  5)break;;
  *) echo "incorrect option";;
  esac
