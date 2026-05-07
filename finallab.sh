@@ -87,8 +87,7 @@ file_management_menu() {
     case $choice in
       1)
         read -p "Enter file name: " file
-        if [ -e "$file" ];
-        then
+        if [[ -e "$file" ]]; then
           echo "File already exists!"
         else
           touch "$file"
@@ -98,7 +97,7 @@ file_management_menu() {
 
       2)
         read -p "Enter directory name: " dir
-        if [ -d "$dir" ]; then
+        if [[ -d "$dir" ]]; then
           echo "Directory already exists!"
         else
           mkdir "$dir"
@@ -110,7 +109,7 @@ file_management_menu() {
         read -p "Enter source directory: " src
         read -p "Enter backup location: " dest
 
-        if [ ! -d "$src" ]; then
+        if [[ ! -d "$src" ]]; then
           echo "Source directory does not exist!"
         else
           mkdir -p "$dest"
